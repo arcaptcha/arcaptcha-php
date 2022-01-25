@@ -1,10 +1,9 @@
 # PHP ArCaptcha Library
 
-[![Latest Stable Version](http://poser.pugx.org/mohammadv184/arcaptcha/v)](https://packagist.org/packages/mohammadv184/arcaptcha)
-[![Total Downloads](http://poser.pugx.org/mohammadv184/arcaptcha/downloads)](https://packagist.org/packages/mohammadv184/arcaptcha)
-[![Latest Unstable Version](http://poser.pugx.org/mohammadv184/arcaptcha/v/unstable)](https://packagist.org/packages/mohammadv184/arcaptcha)
-[![Build Status](https://travis-ci.com/mohammadv184/arcaptcha.svg?branch=main)](https://travis-ci.com/mohammadv184/arcaptcha)
-[![License](http://poser.pugx.org/mohammadv184/arcaptcha/license)](https://packagist.org/packages/mohammadv184/arcaptcha)
+[![Latest Stable Version](http://poser.pugx.org/arcaptcha/arcaptcha-php/v)](https://packagist.org/packages/arcaptcha/arcaptcha-php)
+[![Total Downloads](http://poser.pugx.org/arcaptcha/arcaptcha-php/downloads)](https://packagist.org/packages/arcaptcha/arcaptcha-php)
+[![Latest Unstable Version](http://poser.pugx.org/arcaptcha/arcaptcha-php/v/unstable)](https://packagist.org/packages/arcaptcha/arcaptcha-php) [![License](http://poser.pugx.org/arcaptcha/arcaptcha-php/license)](https://packagist.org/packages/arcaptcha/arcaptcha-php)
+[![PHP Version Require](http://poser.pugx.org/arcaptcha/arcaptcha-php/require/php)](https://packagist.org/packages/arcaptcha/arcaptcha-php)
 
 PHP library for ArCaptcha.
 This package supports `PHP 7.3+`.
