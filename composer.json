@@ -1,7 +1,7 @@
 {
-    "name": "mohammadv184/arcaptcha",
+    "name": "arcaptcha/arcaptcha-php",
     "description": "PHP library for ArCaptcha",
-    "homepage": "https://github.com/mohammadv184/arcaptcha",
+    "homepage": "https://github.com/arcaptcha/arcaptcha-php",
     "keywords": [
         "captcha",
         "arcaptcha",
@@ -24,12 +24,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mohammadv184\\ArCaptcha\\" : "src"
+            "Mohammadv184\\ArCaptcha\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mohammadv184\\ArCaptcha\\Tests\\" : "tests"
+            "Mohammadv184\\ArCaptcha\\Tests\\": "tests"
         }
     },
     "scripts": {

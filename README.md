@@ -1,8 +1,7 @@
 # PHP ArCaptcha Library
 
-
-[![Latest Stable Version](http://poser.pugx.org/mohammadv184/arcaptcha/v)](https://packagist.org/packages/mohammadv184/arcaptcha) 
-[![Total Downloads](http://poser.pugx.org/mohammadv184/arcaptcha/downloads)](https://packagist.org/packages/mohammadv184/arcaptcha) 
+[![Latest Stable Version](http://poser.pugx.org/mohammadv184/arcaptcha/v)](https://packagist.org/packages/mohammadv184/arcaptcha)
+[![Total Downloads](http://poser.pugx.org/mohammadv184/arcaptcha/downloads)](https://packagist.org/packages/mohammadv184/arcaptcha)
 [![Latest Unstable Version](http://poser.pugx.org/mohammadv184/arcaptcha/v/unstable)](https://packagist.org/packages/mohammadv184/arcaptcha)
 [![Build Status](https://travis-ci.com/mohammadv184/arcaptcha.svg?branch=main)](https://travis-ci.com/mohammadv184/arcaptcha)
 [![License](http://poser.pugx.org/mohammadv184/arcaptcha/license)](https://packagist.org/packages/mohammadv184/arcaptcha)
@@ -14,13 +13,13 @@ This package supports `PHP 7.3+`.
 
 - [PHP ArCaptcha Library](#PHP-ArCaptcha-Library)
 - [List of contents](#list-of-contents)
-    - [Installation](#Installation)
-    - [Configuration](#Configuration)
-    - [How to use](#how-to-use)
-        - [Widget usage](#Widget-usage)
-        - [Verifying a response](#Verifying-a-response)
-    - [Credits](#credits)
-    - [License](#license)
+  - [Installation](#Installation)
+  - [Configuration](#Configuration)
+  - [How to use](#how-to-use)
+    - [Widget usage](#Widget-usage)
+    - [Verifying a response](#Verifying-a-response)
+  - [Credits](#credits)
+  - [License](#license)
 
 ## Installation
 
@@ -39,7 +38,14 @@ You can get that at https://arcaptcha.ir/dashboard
 use Mohammadv184\ArCaptcha\ArCaptcha;
 
 $ArCaptcha = new ArCaptcha($siteKey, $secretKey);
+
+// To set options like color,lang,...
+$ArCaptcha = new ArCaptcha($siteKey, $secretKey,['lang'=>'en','theme'=>'dark']);
+
 ```
+
+_To see available options on widget see [here](https://docs.arcaptcha.ir/docs/configuration#arcaptcha-container-configuration)_
+
 ## How to use
 
 How to use ArCaptcha.
@@ -56,10 +62,13 @@ To show the ArCaptcha on a form, use the class to render the script tag and the 
 </form>
 ```
 
+_Note: You can pass available widget options like color,lang,... into getWidget function_
+
 ### Verifying a response
 
-After the post, use the class to verify the response. 
+After the post, use the class to verify the response.
 You get true or false back:
+
 ```php
 if ($ArCaptcha->verify($_POST["arcaptcha-token"])) {
     echo "OK!";
@@ -67,6 +76,11 @@ if ($ArCaptcha->verify($_POST["arcaptcha-token"])) {
     echo "FAILED!";
 }
 ```
+
+### Invisible mode
+
+To see how invisible mode is working in this library see this [example](https://github.com/arcaptcha/arcaptcha-php-example/blob/main/without-composer/index-invisible.php)
+
 ## Credits
 
 - [Mohammad Abbasi](https://github.com/mohammadv184)
