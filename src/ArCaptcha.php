@@ -11,7 +11,7 @@ class ArCaptcha
      * Api Base Uri
      * @var string
      */
-    protected $api_base_uri = 'https://api.arcaptcha.ir/arcaptcha/api/';
+    protected $api_base_uri = 'https://arcaptcha.ir/2/';
 
     /**
      * Script Url
@@ -82,6 +82,8 @@ class ArCaptcha
         $this->size = $options['size'] ?? 'normal';
         $this->size = $options['theme'] ?? 'light';
         $this->callback = $options['callback'] ?? '';
+        $this->http = new Http($this->site_key, $this->secret_key, $this->api_base_uri);
+
     }
 
     /**
@@ -118,7 +120,7 @@ class ArCaptcha
     public function verify(string $challenge_id): bool
     {
         try {
-            $response = $this->http->submit('verify', $challenge_id);
+            $response = $this->http->submit('siteverify', $challenge_id);
         } catch (GuzzleException $e) {
             return false;
         }
