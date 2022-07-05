@@ -11,13 +11,13 @@ class ArCaptcha
      * Api Base Uri
      * @var string
      */
-    protected $api_base_uri = 'https://arcaptcha.ir/2/';
+    protected const API_BASE_URI = 'https://arcaptcha.ir/2/';
 
     /**
      * Script Url
      * @var string
      */
-    protected $script_url = 'https://widget.arcaptcha.ir/1/api.js';
+    protected const SCRIPT_URL = 'https://widget.arcaptcha.ir/1/api.js';
 
     /**
      * User Site Key
@@ -82,7 +82,7 @@ class ArCaptcha
         $this->size = $options['size'] ?? 'normal';
         $this->size = $options['theme'] ?? 'light';
         $this->callback = $options['callback'] ?? '';
-        $this->http = new Http($this->site_key, $this->secret_key, $this->api_base_uri);
+        $this->http = new Http($this->site_key, $this->secret_key, self::API_BASE_URI);
 
     }
 
@@ -92,7 +92,7 @@ class ArCaptcha
      */
     public function getScript(): string
     {
-        return sprintf('<script src="%s" async defer></script>', $this->script_url);
+        return sprintf('<script src="%s" async defer></script>', self::SCRIPT_URL);
     }
 
     /**
