@@ -11,13 +11,55 @@ class ArCaptcha
      * Api Base Uri
      * @var string
      */
-    protected $api_base_uri = 'https://arcaptcha.co/2/';
+    protected const API_BASE_URI = 'https://arcaptcha.co/2/';
 
     /**
      * Script Url
      * @var string
      */
-    protected $script_url = 'https://widget.arcaptcha.co/2/api.js';
+    protected const SCRIPT_URL = 'https://widget.arcaptcha.co/1/api.js';
+
+    /**
+     * User Site Key
+     * @var string
+     */
+    protected $site_key;
+
+    /**
+     * User Secret Key
+     * @var string
+     */
+    protected $secret_key;
+
+    /**
+     * Widget Color
+     * @var string
+     */
+    protected $color;
+
+    /**
+     * Widget Language
+     * @var string
+     */
+    protected $lang;
+
+    /**
+     * Widget size (invisible or normal)
+     * @var string
+     */
+    protected $size;
+
+    /**
+     * Widget theme
+     * @var string
+     */
+    protected $theme;
+
+    /**
+     * Callback function name after challenge is solved
+     * @var string
+     */
+    protected $callback;
 
     /**
      * Http Adapter
@@ -31,15 +73,16 @@ class ArCaptcha
      * @param string $secret_key
      * @param array $options
      */
-    public function __construct(protected string $site_key, protected string $secret_key, protected array $options = [])
+    public function __construct(string $site_key, string $secret_key, array $options = [])
     {
-        $this->options['color'] = $options['color'] ?? 'normal';
-        $this->options['lang'] = $options['lang'] ?? 'fa';
-        $this->options['size'] = $options['size'] ?? 'normal';
-        $this->options['theme'] = $options['theme'] ?? 'light';
-        $this->options['callback'] = $options['callback'] ?? '';
-        $this->http = new Http($this->site_key, $this->secret_key, $this->api_base_uri);
-
+        $this->site_key = $site_key;
+        $this->secret_key = $secret_key;
+        $this->color = $options['color'] ?? 'normal';
+        $this->lang = $options['lang'] ?? 'fa';
+        $this->size = $options['size'] ?? 'normal';
+        $this->size = $options['theme'] ?? 'light';
+        $this->callback = $options['callback'] ?? '';
+        $this->http = new Http($this->site_key, $this->secret_key, self::API_BASE_URI);
     }
 
     /**
@@ -48,7 +91,7 @@ class ArCaptcha
      */
     public function getScript(): string
     {
-        return sprintf('<script src="%s" async defer></script>', $this->script_url);
+        return sprintf('<script src="%s" async defer></script>', self::SCRIPT_URL);
     }
 
     /**
@@ -61,7 +104,7 @@ class ArCaptcha
             '<div class="arcaptcha" data-site-key="%s" data-color="%s" data-lang="%s" data-size="%s" data-theme="%s" data-callback="%s"></div>',
             $this->site_key,
             $options['color'] ?? $this->options['color'] ?? 'normal',
-            $options['lang'] ?? $this->options['lang']?? 'fa',
+            $options['lang'] ?? $this->options['lang'] ?? 'fa',
             $options['size'] ?? $this->options['size'] ?? 'normal',
             $options['theme'] ?? $this->options['theme'] ?? 'light',
             $options['callback'] ?? $this->options['callback'] ?? '',
