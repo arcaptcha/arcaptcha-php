@@ -80,7 +80,7 @@ class ArCaptcha
         $this->color = $options['color'] ?? 'normal';
         $this->lang = $options['lang'] ?? 'fa';
         $this->size = $options['size'] ?? 'normal';
-        $this->size = $options['theme'] ?? 'light';
+        $this->theme = $options['theme'] ?? 'light';
         $this->callback = $options['callback'] ?? '';
         $this->http = new Http($this->site_key, $this->secret_key, self::API_BASE_URI);
     }
