@@ -69,7 +69,7 @@ After the post, use the class to verify the response.
 You get true or false back:
 
 ```php
-if ($ArCaptcha->verify($_POST["arcaptcha-token"])) {
+if ($ArCaptcha->verify($_POST["arcaptcha-response"])) {
     echo "OK!";
 } else {
     echo "FAILED!";
