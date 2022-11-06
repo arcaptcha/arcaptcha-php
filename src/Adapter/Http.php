@@ -51,10 +51,10 @@ class Http implements Adapter
     public function submit(string $uri, string $challenge_id): array
     {
         $response = $this->client->post($uri, [
-            'json' => [
-                'response' => $challenge_id,
-                'sitekey'  => $this->site_key,
-                'secret'   => $this->secret_key
+            'json'=>[
+                'challenge_id' => $challenge_id,
+                'site_key' => $this->site_key,
+                'secret_key' => $this->secret_key
             ]
         ]);
 

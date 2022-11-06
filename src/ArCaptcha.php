@@ -11,13 +11,13 @@ class ArCaptcha
      * Api Base Uri
      * @var string
      */
-    protected const API_BASE_URI = 'https://arcaptcha.co/2/';
+    protected const API_BASE_URI = 'https://api.arcaptcha.ir/arcaptcha/api/';
 
     /**
      * Script Url
      * @var string
      */
-    protected const SCRIPT_URL = 'https://widget.arcaptcha.co/1/api.js';
+    protected const SCRIPT_URL = 'https://widget.arcaptcha.ir/1/api.js';
 
     /**
      * User Site Key
@@ -119,7 +119,7 @@ class ArCaptcha
     public function verify(string $challenge_id): bool
     {
         try {
-            $response = $this->http->submit('siteverify', $challenge_id);
+            $response = $this->http->submit('verify', $challenge_id);
         } catch (GuzzleException $e) {
             return false;
         }
