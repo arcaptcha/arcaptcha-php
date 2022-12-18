@@ -25,7 +25,7 @@ This package supports `PHP 7.3+`.
 Require this package with composer:
 
 ```bash
-composer require mohammadv184/arcaptcha
+composer require arcaptcha/arcaptcha-php
 ```
 
 ## Configuration
