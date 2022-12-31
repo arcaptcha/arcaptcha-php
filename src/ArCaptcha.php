@@ -7,6 +7,8 @@ use Mohammadv184\ArCaptcha\Adapter\Http;
 
 class ArCaptcha
 {
+    use WidgetOptions;
+    
     /**
      * Api Base Uri
      * @var string
@@ -30,30 +32,6 @@ class ArCaptcha
      * @var string
      */
     protected $secret_key;
-
-    /**
-     * Widget Color
-     * @var string
-     */
-    protected $color;
-
-    /**
-     * Widget Language
-     * @var string
-     */
-    protected $lang;
-
-    /**
-     * Widget size (invisible or normal)
-     * @var string
-     */
-    protected $size;
-
-    /**
-     * Widget theme
-     * @var string
-     */
-    protected $theme;
 
     /**
      * Callback function name after challenge is solved
