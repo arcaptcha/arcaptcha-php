@@ -56,6 +56,13 @@ class ArCaptcha
     protected $theme;
 
     /**
+     * Default returned value from verify function 
+     * when there is an Network or any other unexpected issue.
+     * @var 
+     */
+    protected $verify_exception_value;
+
+    /**
      * Callback function name after challenge is solved
      * @var string
      */
@@ -81,6 +88,7 @@ class ArCaptcha
         $this->lang = $options['lang'] ?? 'fa';
         $this->size = $options['size'] ?? 'normal';
         $this->theme = $options['theme'] ?? 'light';
+        $this->verify_exception_value = $options['verify_exception_value'] ?? false;
         $this->callback = $options['callback'] ?? '';
         $this->http = new Http($this->site_key, $this->secret_key, self::API_BASE_URI);
     }
@@ -121,7 +129,7 @@ class ArCaptcha
         try {
             $response = $this->http->submit('verify', $challenge_id);
         } catch (GuzzleException $e) {
-            return false;
+            return $this->verify_exception_value;
         }
         return $response['success'] ?? false;
     }
